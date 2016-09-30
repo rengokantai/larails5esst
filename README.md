@@ -134,3 +134,53 @@ hello.html.erb
 ```
 <%= @id %>
 ```
+###4. Database and Migrations
+####1 Introduction to database
+Common terms
+Row->single record of data  
+field->intersection of a column and row  
+index->data struct on a table to increase lookup speed  
+fk->table column whose values reference rows in another table   
+schema->structural definition of a database  
+
+####2 Create a database
+some commands
+```
+grant all privileges on *.* to ''@'' identified by '';
+show grants for 'user'@'%'
+```
+
+####4 Generate migrations
+```
+gails generate migration DoNothing
+```
+in db/migrate/1016...rb,default is
+```
+class DoNothing < ActiveRecord::Migration[5.0]
+  def change
+  end
+end
+```
+change to
+```
+class DoNothing < ActiveRecord::Migration[5.0]
+  def up
+  end
+  def down
+  end
+end
+```
+
+####5 Generate models
+```
+rails g model User
+```
+we can see
+```
+ invoke  active_record
+ create    db/migrate/20160930030823_create_users.rb
+ create    app/models/user.rb
+ invoke    test_unit
+ create      test/models/user_test.rb
+ create      test/fixtures/users.yml
+```
