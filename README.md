@@ -184,3 +184,24 @@ we can see
  create      test/models/user_test.rb
  create      test/fixtures/users.yml
 ```
+03:10
+2016_create_users.rb
+```
+def up
+    create_table :users do |t|
+      t.column "first_name", :string
+      t.column "last_name", :string    //same as   t.string "last_name"
+      t.timestamps
+    end
+end
+```
+//binary boolean data datetime decimal float integer string text time
+
+table column options
+```
+:limit=>size
+:default=>value
+:null=>true/false
+
+:precision=>number
+:scale=>number
