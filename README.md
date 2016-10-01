@@ -265,9 +265,42 @@ user.created_at
 user.updated_at
 user.update_attribute(:name=>'other')
 ```
-####9 Query methods: Conditions
+
 
 ####7 Delete records
+use destroy.
+####9 Query methods: Conditions
+
 ```
 Subject.where(:visible =>true)
+```
+chained
+```
+User.where().where()
+```
+get sql
+```
+irb(main):001:0> subjects = Subject.where(:visible=>true)
+irb(main):001:0> subjects = Subject.where("visible=true")
+irb(main):001:0> subjects = Subject.where(["visible=?",true])
+irb(main):003:0> subjects.to_sql
+```
+####10 Query methods: Order, limit, and offset
+no skip,sort (memorize api)  
+syntax
+```
+order(:position)
+order(:position => :asc)
+order("position asc")
+
+####11 Named scopes
+exp:
+```
+scope :with_content_type, lambda {where{:active=>true}}
+scope :active, -> {where{:active=>true}}
+```
+#evaluated when called, not defined.  
+#chining scope
+```
+Article.active.recent
 ```
