@@ -205,3 +205,28 @@ table column options
 
 :precision=>number
 :scale=>number
+
+####6 Run migrations
+some query
+````
+show fields from users;
+select * from schema_migrations;
+```
+05:20 undo migrations
+```
+rails db:migrate VERSION=0
+```
+get status
+```
+rails db:migrate:status
+```
+go to specific version
+```
+rails db:mirgate VERSION=20160930..
+```
+other method, up=one version up down=one previous version redo=redo previous activity
+```
+rails db:mirgate:up VERSION=20160930..
+rails db:mirgate:down VERSION=20160930..
+rails db:mirgate:redo VERSION=20160930..
+```
