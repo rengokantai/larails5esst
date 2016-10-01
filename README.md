@@ -230,3 +230,4 @@ rails db:mirgate:up VERSION=20160930..
 rails db:mirgate:down VERSION=20160930..
 rails db:mirgate:redo VERSION=20160930..
 ```
+####8 Solve migration problems
