@@ -270,3 +270,4 @@ user.update_attribute(:name=>'other')
 ####7 Delete records
 ```
 Subject.where(:visible =>true)
+```
