@@ -231,3 +231,42 @@ rails db:mirgate:down VERSION=20160930..
 rails db:mirgate:redo VERSION=20160930..
 ```
 ####8 Solve migration problems
+If fails a migrate, comment out a table that success until the failing line
+
+###5. Models and ActiveRecord
+####2 Model naming
+```
+rails g model SingularName
+```
+If you did not following naming convension when creating a model, in models/user.rb,
+```
+class User < ApplicationRecord
+	self.table_name="admin_users"  //class is User, default name should be "users"
+end
+```
+
+####6 Update records
+```
+ralis c
+```
+two step
+```
+user = AdminUser.new
+user.new_record?
+user.save
+```
+one step
+```
+AdminUser.create(:last_name=>"name")
+```
+AdminUser.find(1) //return error if not exists
+AdminUser.find_by_id(1) //not return error if not exist, return null
+user.created_at
+user.updated_at
+user.update_attribute(:name=>'other')
+```
+####9 Query methods: Conditions
+
+####7 Delete records
+```
+Subject.where(:visible =>true)
