@@ -599,3 +599,20 @@ number_to_human_size(123456789,:precision=>4) #123.4 mb
 ```
 number_to_phone(1234567890) #123-456-7890
 number_to_phone(1234567890,:area_code=>true,:delimiter=>' ',:country=>1,:extension=>'321') #+1(123) 456-7890 *321
+
+####5 Date and time helpers
+Time.now - 1 day = 30.days.ago   
+Time.now + 1 day = 30.days.from_now 
+
+datetime methods
+```
+Time.now.strftime("%B %d,%Y %H:%M")  #September 30, 2016 09:12
+```
+to_s
+```
+Time.now.to_s(:long)
+```
+
+####6 Custom helpers
+
+####7 Sanitization helpers
