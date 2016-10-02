@@ -360,3 +360,72 @@ Remember that belongs_to is no longer optional whether or not you have a parent 
 ```
 has_many :through
 ```
+Rails gives us a tool for this using has many through. It allows reaching across a rich join and treating it like it's a has and belongs to many join.  
+
+So. edit admin_user.rb
+```
+class AdminUser < ApplicationRecord
+	attr_accessor :first_name
+	def last_name
+		@last_name
+	end
+
+	def last_name(v)
+		@last_name=v
+	end
+	has_and_belongs_to_many :pages
+	has_many :section_edits
+	has_many :sections, :through => :section_edits
+end
+```
+section.rb
+```
+class Section < ApplicationRecord
+	belongs_to :page
+	has_many :section_edits
+	has_many :admin_users, :through => :section_edits
+end
+```
+then in rails console,
+```
+me =
+me
+```
+
+###7. CRUD
+####1 CRUD
+```
+rails g controller Subjects index show new edit delete
+```
+other three,
+```
+create, update, destroy
+```
+do not need template,just action.
+
+####3 Resourceful routes
+ex,delete is not included in the default actions defined by resources, so you would need to add it in the way
+```
+resources :subjects do
+	member do
+		get :delete
+	end
+
+	collection do
+		get :export
+	end
+end
+```
+You can use :except and :only in order to list the actions which should be given routes. And as we just saw with delete, it's also possible to add additional resources. There are two different types of routes that we can add. There's member and collection. Member routes operate on a member of the resource. In other words, they expect to receive a record ID in the URL. Edit and update are examples of built-in routes that are member routes. Collection routes operate on the resource as a whole. In other words, they do not expect to get a record ID in the URL. Index is an obvious example of a built-in member route, but new and create also operate on the collection as a whole, not on an existing member.  
+
+check
+```
+rails routes
+```
+####4 Resourceful URL helpers
+ex
+```
+<%= link_to('text',subjects_path) %>
+<%= link_to('text',subjects_path(:page=>3)) %>
+<%= link_to('text',subjects_path(@subject.id)) %>
+```
