@@ -516,3 +516,12 @@ same as
 rails g controller Pages index show new edit delete
 rails g controller Sections index show new edit delete
 ```
+
+
+###9. Layouts, Partials, and
+####1 Layouts
+we can put
+```
+@page_title = "all sbj"
+```
+in pages_controller,
