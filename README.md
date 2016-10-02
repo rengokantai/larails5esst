@@ -429,3 +429,4 @@ ex
 <%= link_to('text',subjects_path(:page=>3)) %>
 <%= link_to('text',subjects_path(@subject.id)) %>
 ```
+###8. Controllers and CRUD
