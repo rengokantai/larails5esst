@@ -331,3 +331,24 @@ join table naming, using _ to connect, and sort by alpha order
 ```
 Project-Collaborator: collaborators_projects
 ```
+
+###6 Many-to-many associations: Rich
+we have two tables: courses, students. simple join: create table courses_students
+complex join, we rename table to course_enrollments: so, courses:
+```
+has_many :course_enrollments
+```
+course_enrollments:
+```
+belongs_to :course
+belongs_to :student
+```
+students:
+```
+has_many :course_enrollments
+```
+
+compare to many-to-many simple asso:
+- still uses a join table with two indexed fk
+- requires a primary key column(:id)
+- join table has its own model
