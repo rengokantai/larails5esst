@@ -490,3 +490,6 @@ Subject.create(params[:subject])
 Subject.new(params[:subject])
 @subject.update_attributes(params[:subject])
 ```
+ All we have to do is tell the params hash what attributes to permit on each request. Permit is a method that marks the attributes as being available for mass assignment. By default, all values in the params hash are unavailable for mass assignment. We must whitelist the ones that we want to allow. There's another method called require and require ensures that a parameter is present. If our attributes hash is assigned to subject, then we need to make sure that subject is in the params.
+
+ 
