@@ -560,3 +560,42 @@ pluralize
 <%end%>
 ```
 others: truncate_words, highlight,excerpt
+
+####4 Number helpers
+```
+number_to_currency/number_to_percentage/
+number_with_precision=number_to_rounded
+number_with_delimiter=number_to_delimited
+number_to_human/number_to_human_size/number_to_phone
+```
+options
+```
+:delimitor
+:seperator
+:precision
+```
+ex
+```
+number_to_currency(1.5,:precision=>0,:unit=>"ch",:format=>"%n %u")
+number_to_percentage(1.5,:precision=>1,:seperator=>',') #1,5%
+```
+
+default precision=3
+```
+number_with_precision(12.121212) #12.121
+number_with_precision(12.121212,:precision=>7) #12.1212120
+```
+to human
+
+```
+number_to_human(123456789) #123 million
+number_to_human(123456789,:precision=>4) #123.4 million
+```
+```
+number_to_human_size(123456789) #123 mb
+number_to_human_size(123456789,:precision=>4) #123.4 mb
+```
+
+```
+number_to_phone(1234567890) #123-456-7890
+number_to_phone(1234567890,:area_code=>true,:delimiter=>' ',:country=>1,:extension=>'321') #+1(123) 456-7890 *321
