@@ -632,3 +632,39 @@ sanitize output(allow these tags)
 ```
 sanitize(@subject.content, :tags=>['p','br','strong','em'],:attributes=>['id','class','style'])
 ```
+
+###10. Assets
+####1 Asset pipeline
+app/assets/*
+precompilation:
+```
+export RAILS_ENV=production
+bundle exec rails assets:precompile
+```
+####2 Stylesheets
+The first is write the stylesheets. Then add the stylesheet to the manifest file, and add the manifest file to Rail's asset precompile list. That will ensure that Asset Pipeline is able to put together a stylesheet that's ready for serving to the browser.  
+
+By default, we have a manifest file here called application.css.  
+
+ The lines that are down here that include an equal sign, those are the directives that tell the manifest file what it should load in. Notice that there are two directives already. The first is require_tree and then a period after it. That tells it to load in all of the files that are included in the stylesheets directory. The period is the current directory, and tree means require all the files that are there.  
+
+ And then the other one is require_self. This is a directive that says that it should load in any styles that we might happen to have in this file so that those get included as well.(not recommended)  
+
+
+ create admin.css
+ ```
+  * require_tree .
+ *= require primary
+ *= require admin_additions
+ *= require_self
+ ```
+ then we need to tell rails precompile info
+ in config/initializers/assets.rb,uncomment/add(for multiple files, do not need to add comma)
+ ```
+ Rails.application.config.assets.precompile += %w( admin.css )
+ ```
+ css helper tag, default: :media=>'screen'
+ ```
+ <%= stylesheet_link_tag('application') %>
+  <%= stylesheet_link_tag('application', :media=>'all') %>
+ ```
