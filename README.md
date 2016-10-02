@@ -614,5 +614,21 @@ Time.now.to_s(:long)
 ```
 
 ####6 Custom helpers
+code in app/helpers/application_helper.rb,set a status_tag to add a span tag used to present status of visible.
 
 ####7 Sanitization helpers
+(In old version rails, we need to call html_escape()/h()  )
+
+
+By default, rails escape strings(HTML tags), to restore, use raw
+```
+<%= raw string %>
+```
+remove links
+```
+strip_links(text)
+```
+sanitize output(allow these tags)
+```
+sanitize(@subject.content, :tags=>['p','br','strong','em'],:attributes=>['id','class','style'])
+```
