@@ -304,3 +304,30 @@ scope :active, -> {where{:active=>true}}
 ```
 Article.active.recent
 ```
+
+###6. Associations
+####2 One-to-one
+####3 One-to-many
+we define ```has_many :pages``` in models/subject.rb, ```belongs_to :subject``` in models/page.rb  
+```
+subjects.pages.size
+subjects.pages.count #same as above, but execute query
+subjects.pages.empty?
+```
+####4 belongs_to presence validation
+test validation.
+```
+page = Page.new(:name=>'ke')
+page.save  #rollback error
+page.errors.full_messages
+```
+by default this optional is false, like this
+```
+belongs_to :subject, {:optional=>true}
+```
+we can change to false.
+###5 Many-to-many associations: Simple
+join table naming, using _ to connect, and sort by alpha order
+```
+Project-Collaborator: collaborators_projects
+```
