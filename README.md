@@ -524,4 +524,7 @@ we can put
 ```
 @page_title = "all sbj"
 ```
-in pages_controller,
+in pages_controller,or put in templates
+```
+<%@page_title = "all sbj"%>
+```

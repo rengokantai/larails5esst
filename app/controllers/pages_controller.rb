@@ -2,7 +2,6 @@ class PagesController < ApplicationController
   layout 'admin'
   def index
     @pages = Page.sorted
-    @page_title = "all sbj"
   end
 
   def show
