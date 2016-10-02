@@ -5,7 +5,7 @@ class SubjectsController < ApplicationController
   end
 
   def show
-    @Subject = Subject.find(params[:id])
+    @subject = Subject.find(params[:id])
   end
 
   def edit
@@ -20,6 +20,7 @@ class SubjectsController < ApplicationController
   end
 
   def new
+    @subject = Subject.new
   end
 
   def destroy

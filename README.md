@@ -445,3 +445,25 @@ or using convention
 <%= link_to("show",subject_path(subject))%> #same as
 <%= link_to("show",subject_path(subject.id))%>
 ```
+####4 Create action: New
+use form_for helper. actually
+```
+<%= form_for(@subject, :url => subjects_path, :method => 'post') do |f| %>
+```
+is same as
+```
+<%= form_for(@subject) do |f| %>
+```
+
+for controller.action.new, we can create default value
+```
+def new
+    @subject = Subject.new
+end
+```
+can be
+```
+def new
+    @subject = Subject.new({:name=>'default'})
+end
+```
