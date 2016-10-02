@@ -492,4 +492,12 @@ Subject.new(params[:subject])
 ```
  All we have to do is tell the params hash what attributes to permit on each request. Permit is a method that marks the attributes as being available for mass assignment. By default, all values in the params hash are unavailable for mass assignment. We must whitelist the ones that we want to allow. There's another method called require and require ensures that a parameter is present. If our attributes hash is assigned to subject, then we need to make sure that subject is in the params.
 
- 
+ ####7 Update actions: Edit/update
+ for update,
+ ```
+ <%= form_for(@subject) do |f| %>
+ ```
+ is same as
+ ```
+ <%= form_for(@subject, :url => subjects_path(@subject), :method => 'patch') do |f| %>
+ ```
