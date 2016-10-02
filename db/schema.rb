@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161001200943) do
+ActiveRecord::Schema.define(version: 20161002002102) do
 
   create_table "admin_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "first_name"
@@ -21,6 +21,12 @@ ActiveRecord::Schema.define(version: 20161001200943) do
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
     t.index ["username"], name: "index_admin_users_on_username", using: :btree
+  end
+
+  create_table "admin_users_pages", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer "admin_user_id"
+    t.integer "page_id"
+    t.index ["admin_user_id", "page_id"], name: "index_admin_users_pages_on_admin_user_id_and_page_id", using: :btree
   end
 
   create_table "pages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
