@@ -646,25 +646,48 @@ The first is write the stylesheets. Then add the stylesheet to the manifest file
 
 By default, we have a manifest file here called application.css.  
 
- The lines that are down here that include an equal sign, those are the directives that tell the manifest file what it should load in. Notice that there are two directives already. The first is require_tree and then a period after it. That tells it to load in all of the files that are included in the stylesheets directory. The period is the current directory, and tree means require all the files that are there.  
+The lines that are down here that include an equal sign, those are the directives that tell the manifest file what it should load in. Notice that there are two directives already. The first is require_tree and then a period after it. That tells it to load in all of the files that are included in the stylesheets directory. The period is the current directory, and tree means require all the files that are there.  
 
- And then the other one is require_self. This is a directive that says that it should load in any styles that we might happen to have in this file so that those get included as well.(not recommended)  
+And then the other one is require_self. This is a directive that says that it should load in any styles that we might happen to have in this file so that those get included as well.(not recommended)  
 
 
- create admin.css
- ```
-  * require_tree .
- *= require primary
- *= require admin_additions
- *= require_self
- ```
- then we need to tell rails precompile info
- in config/initializers/assets.rb,uncomment/add(for multiple files, do not need to add comma)
- ```
- Rails.application.config.assets.precompile += %w( admin.css )
- ```
- css helper tag, default: :media=>'screen'
- ```
- <%= stylesheet_link_tag('application') %>
-  <%= stylesheet_link_tag('application', :media=>'all') %>
- ```
+create admin.css
+```
+* require_tree .
+*= require primary
+*= require admin_additions
+*= require_self
+```
+then we need to tell rails precompile info
+in config/initializers/assets.rb,uncomment/add(for multiple files, do not need to add comma)
+```
+Rails.application.config.assets.precompile += %w( admin.css )
+```
+css helper tag, default: :media=>'screen'
+```
+<%= stylesheet_link_tag('application') %>
+<%= stylesheet_link_tag('application', :media=>'all') %>
+```
+####3 Javascript
+```
+<%= javascript_include_tag('application') %>
+```
+
+####4 JavaScript tag and sanitizing
+using j function.
+```
+<% text = "');alert('bad code!" %>
+<%= javascript_include_tag('application#{j(text)}') %>
+```
+####5 Images
+with asset pipeline: app/assets/images  
+without: /public/images
+```
+<%= image_tag('src.png',:alt=>'',:width=>10,:height=>20)%>
+<%= image_tag('src.png',:alt=>'',:size=>'10x20')%>
+```
+
+image helper tag in css instead use url(''), use image-url, like
+```
+background: $light_brown image-url('footer_gradient.png') repeat-y 0 0;
+```
