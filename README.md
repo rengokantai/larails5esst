@@ -529,7 +529,7 @@ in pages_controller,or put in templates
 <%@page_title = "all sbj"%>
 ```
 
-####2
+####2 Partial templates
 This is incorrect,
 ```
 <%= render(:partial =>'form') %>
@@ -539,3 +539,24 @@ we must define a local variable, such as
 <%= render(:partial =>'form',:locals=>{:f=>f}) %>
 ```
 :f=>f, first f = f in partial file, second f=f in this file
+
+####3 Text helpers
+ex
+```
+<%= word_wrap(text,:line_width=>30) %>
+```
+simple_format, \n-><br/>
+```
+<%= simple_format(text) %>
+```
+truncte. omission string default = ..., included in total count
+```
+<%= truncate(text,:truncate=>30) %>
+```
+pluralize
+```
+<%[0,1,2].each do |n| %>
+<%= pluralize(n,'product')%> found.
+<%end%>
+```
+others: truncate_words, highlight,excerpt
