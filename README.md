@@ -483,3 +483,10 @@ create action. render('new') can preserve previous submitted form.
 ```
 This may cause ActiveModel::ForbiddenAttributesError in SubjectsController#create
 
+####6 Strong parameters
+mass assignment. like
+```
+Subject.create(params[:subject])
+Subject.new(params[:subject])
+@subject.update_attributes(params[:subject])
+```

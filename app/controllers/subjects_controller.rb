@@ -11,7 +11,7 @@ class SubjectsController < ApplicationController
   def edit
   end
   def create
-    @subject = Subject.new(params[:subject])
+    @subject = Subject.new(params.require(:subject).permit(:name,:position,:visible))
     if @subject.save
       redirect_to(subjects_path)
     else
