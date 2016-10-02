@@ -351,4 +351,12 @@ has_many :course_enrollments
 compare to many-to-many simple asso:
 - still uses a join table with two indexed fk
 - requires a primary key column(:id)
-- join table has its own model
+- join table has its own model  
+
+
+Remember that belongs_to is no longer optional whether or not you have a parent relate to that. It's especially a problem when you're working with these join tables because there's more than one parent. 
+
+####7 Traverse a rich association
+```
+has_many :through
+```
