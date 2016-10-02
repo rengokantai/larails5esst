@@ -467,3 +467,19 @@ def new
     @subject = Subject.new({:name=>'default'})
 end
 ```
+
+####5 Create action: Create
+
+create action. render('new') can preserve previous submitted form.
+```
+  def create
+    @subject = Subject.new(params[:subject])
+    if @subject.save
+      redirect_to(subjects_path)
+    else
+      render('new')
+    end
+  end
+```
+This may cause ActiveModel::ForbiddenAttributesError in SubjectsController#create
+

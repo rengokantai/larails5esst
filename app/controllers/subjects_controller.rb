@@ -11,6 +11,12 @@ class SubjectsController < ApplicationController
   def edit
   end
   def create
+    @subject = Subject.new(params[:subject])
+    if @subject.save
+      redirect_to(subjects_path)
+    else
+      render('new')
+    end
   end
 
   def update
