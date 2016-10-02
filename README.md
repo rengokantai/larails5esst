@@ -511,3 +511,8 @@ same as
 ```
 <%= form_for(@subject), :method => 'delete') do |f| %>
 ```
+####11: Solution
+```
+rails g controller Pages index show new edit delete
+rails g controller Sections index show new edit delete
+```
