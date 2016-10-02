@@ -1,5 +1,5 @@
 class AdminUser < ApplicationRecord
-	attr_accessor :first_nam
+	attr_accessor :first_name
 	def last_name
 		@last_name
 	end
