@@ -691,3 +691,27 @@ image helper tag in css instead use url(''), use image-url, like
 ```
 background: $light_brown image-url('footer_gradient.png') repeat-y 0 0;
 ```
+
+###11. Forms
+####1 Form helpers
+3 styles: tag style, object aware style, and form builder style
+```
+<%= text_field_tag('name',params[:name])%>
+<%= text_field(:subject,:name)%>
+<%= f.text_field(:name)%>
+```
+text_field password_field text_area hidden_field radio_button check_box file_field label  
+ex:
+```
+form_for(@subject, :html=>{:multipart=>true})do |f|
+```
+radio button sample
+```
+<tr>
+    <th>Content type</th>
+    <td>
+      <%= f.radio_button(:content_type, 'text') %> Text
+      <%= f.radio_button(:content_type, 'HTML') %> HTML
+    </td>
+  </tr>
+ ```
