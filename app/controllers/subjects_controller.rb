@@ -5,6 +5,7 @@ class SubjectsController < ApplicationController
   end
 
   def show
+    @Subject = Subject.find(params[:id])
   end
 
   def edit

@@ -430,3 +430,18 @@ ex
 <%= link_to('text',subjects_path(@subject.id)) %>
 ```
 ###8. Controllers and CRUD
+
+####2 Read action: Show
+one way is
+```
+<%= link_to("show",'subjects/#{subject.id}')%>
+```
+or using hash
+```
+<%= link_to("show",{:controller=>'subjects',:action=>'show',:id=>subject.id})%>
+```
+or using convention
+```
+<%= link_to("show",subject_path(subject))%> #same as
+<%= link_to("show",subject_path(subject.id))%>
+```
