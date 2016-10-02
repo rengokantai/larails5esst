@@ -528,3 +528,14 @@ in pages_controller,or put in templates
 ```
 <%@page_title = "all sbj"%>
 ```
+
+####2
+This is incorrect,
+```
+<%= render(:partial =>'form') %>
+```
+we must define a local variable, such as
+```
+<%= render(:partial =>'form',:locals=>{:f=>f}) %>
+```
+:f=>f, first f = f in partial file, second f=f in this file
