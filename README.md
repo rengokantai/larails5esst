@@ -714,4 +714,15 @@ radio button sample
       <%= f.radio_button(:content_type, 'HTML') %> HTML
     </td>
   </tr>
- ```
+```
+
+####2 Form options helpers
+some exp
+```
+form_for(@section) do |f|
+	f.select(:position 1..4)
+	f.select(:content_type,['text','html'])
+	f.select(:visible,['text'=>1,'html'=>2])
+	f.select(:page_id,Page.all.map{|p| p.name,p.id})
+end
+```
