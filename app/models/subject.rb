@@ -6,4 +6,5 @@ class Subject < ApplicationRecord
 	scope :newest_first, ->{order("created_at desc")}
 	scope :search,lambda{|query| where(["name like ?","%#{query}%"])}#must use lambda this line
 	validates_presents_of :name
+	validates_length_of :name, :maximum => 255
 end

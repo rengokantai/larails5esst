@@ -744,3 +744,30 @@ object.errors.size
 object.errors.each{|attr,msg|..}
 object.errors.full_messages.each{|msg|..}
 ```
+####5 Prevent cross-site request forgery
+ It's a type of attack on a website, which exploit a user's currently logged-in state in order to perform actions which normally require authentication.
+
+ POST request should be used for making changes, and actions that expect POST request, should only respond to POST request.
+
+ ###12. Data Validation
+ ####1 Validation methods
+ ```
+ validates_presence_of
+ validates_langth_of   # :is :minimum :maximum :within :in
+ ```
+ ```
+ validates_numericality_of
+ validates_inclusion_of
+ validates_exclusion_of
+ validates_format_of
+ validates_uniqueness_of  #:case_sensitive :scope
+ ```
+ ```
+ validates_acceptance_of
+ ```
+ This one is not tremendously useful. The idea here is that when we're filling out a form, we might want a user to check a box agreeing to something, like the terms of service. Validates_acceptance_of makes sure that that checkbox got checked. It does one other thing for you besides that. Because it's something like the terms of service, it might be that this attribute is not even stored in the database. We just want the person to agree to it on the form, but then we're not gonna store it after that. So you don't actually have to have a column in your table for it. If you don't, validates_acceptance_of will create a virtual attribute, and it will use that.You can pass in the option accept, which is what value you're looking for. 
+
+```
+validates_conformation_of
+```
+must be confirmed by enterng twice
