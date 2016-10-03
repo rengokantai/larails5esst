@@ -731,3 +731,16 @@ end
 date_select(object,attribute,options,html_options)
 time_select(object,attribute,options,html_options) # :include_seconds=>false,:minute_step=>1,:include_blank=>false,:time_seperator=>":"
 ```
+
+####4 Form errors
+simple validation
+```
+validates_presence_of :name
+```
+error methods
+```
+object.errors.clear
+object.errors.size
+object.errors.each{|attr,msg|..}
+object.errors.full_messages.each{|msg|..}
+```
