@@ -726,3 +726,8 @@ form_for(@section) do |f|
 	f.select(:page_id,Page.all.map{|p| p.name,p.id})
 end
 ```
+####3 Date and time
+```
+date_select(object,attribute,options,html_options)
+time_select(object,attribute,options,html_options) # :include_seconds=>false,:minute_step=>1,:include_blank=>false,:time_seperator=>":"
+```
