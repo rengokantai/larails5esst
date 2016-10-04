@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-
-
+  root 'demo#index'
+  get 'admin', :to =>'access#menu'
   get 'access/menu'
 
   get 'access/login'
+  get 'access/logout'
+
+  post 'access/attempt_login'
 
   #get 'subjects/index'
 
