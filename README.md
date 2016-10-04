@@ -817,3 +817,5 @@ controller filter methods should be private.
 ```
 before_action
 ```
+####4 Logging
+debug,info,warn,error,fatal
