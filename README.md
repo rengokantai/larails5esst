@@ -835,3 +835,10 @@ u=AdminUser.find(1)
 u.password=''
 u.authenticate('')
 ```
+
+####4 Login and logout
+access_controller.rb
+```
+flash.now[:notice]="Failed"
+```
+use flash.now[:notice]. The .now tells the flash[] that it should go ahead and make this the current message, as if were the next request coming in
