@@ -818,4 +818,20 @@ controller filter methods should be private.
 before_action
 ```
 ####4 Logging
-debug,info,warn,error,fatal
+debug,info,warn,error,fatal  
+clear log files
+```
+rails log:clear
+```
+
+###14. User Authentication
+####2 Secure password
+1. add password_digest in admin_user model
+2. add has_secure_password in admin_user.rb  
+
+rails c
+```
+u=AdminUser.find(1)
+u.password=''
+u.authenticate('')
+```
