@@ -797,3 +797,23 @@ in rails console
 ```
 reload! to update changes
 ```
+
+###13. Controller Features
+####1 Cookies
+simple cookie
+```
+cookies[:username]="ke"
+```
+more
+```
+cookies[:username]={
+	:value=>"ke"
+	:expires=>1.week.from_now
+}
+```
+
+####3 Controller filters
+controller filter methods should be private.
+```
+before_action
+```
