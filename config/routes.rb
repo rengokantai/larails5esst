@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   #get 'public/index'
 
-  get 'show/:permalink', :to=>'public#show'
+  get 'show/:permalink', :to => 'public#show', :as => 'public_show'
 
   get 'admin_users/delete'
 
