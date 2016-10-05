@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  get 'public/index'
+
+  get 'public/show'
+
   get 'admin_users/delete'
 
   root 'demo#index'
