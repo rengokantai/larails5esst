@@ -1,6 +1,7 @@
 class SectionsController < ApplicationController
   layout 'admin'
   before_action :confirm_logged_in
+  before_action :find_subject
   def index
     @sections = Section.sorted
   end
